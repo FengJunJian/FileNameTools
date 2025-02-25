@@ -1,11 +1,17 @@
 import os
 
+def readFiles(path):
+    try:
+        if path is None:
+            raise ValueError("Path cannot be None")
+        
+        files = os.listdir(path)
+        return files
+    except Exception as e:
+        print(f"Error reading directory: {e}")
+        return []
 
-def readFiles(Path):
-    files=os.listdir(Path)
-    names=None
-    return names
-
-if __name__=="__main__":
-    Path=None
-    names=readFiles(Path)
+if __name__ == "__main__":
+    path = "your_directory_path_here"  # Replace with actual path
+    names = readFiles(path)
+    print(names)
